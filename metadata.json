@@ -1,0 +1,7 @@
+
+{
+  "name": "Temple mount church records",
+  "description": "An application for Temple Mount Church to record and manage patient healing prayer requests, and generate printable report cards with unique QR codes.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
