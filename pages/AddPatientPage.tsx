@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import PatientForm from '../components/PatientForm';
 import { usePatientContext } from '../contexts/PatientContext';
 import { PatientFormData } from '../types';
+import { toast } from 'react-toastify';
 
 const AddPatientPage: React.FC = () => {
   const { addPatient } = usePatientContext();
@@ -11,8 +12,7 @@ const AddPatientPage: React.FC = () => {
 
   const handleSubmit = (data: PatientFormData) => {
     const newPatient = addPatient(data);
-    // Consider adding a success notification here (e.g., using react-toastify or a simple alert)
-    alert('Patient record added successfully!'); // Simple alert for now
+    toast.success('Patient record added successfully!');
     navigate(`/patient/${newPatient.id}`);
   };
 

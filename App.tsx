@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AddPatientPage from './pages/AddPatientPage';
 import PatientDetailPage from './pages/PatientDetailPage';
-import { ToastContainer } from 'react-toastify'; // Assuming react-toastify is available or a similar notification system
-import 'react-toastify/dist/ReactToastify.css'; // Import if using react-toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
   return (
@@ -22,12 +22,18 @@ const App: React.FC = () => {
       <footer className="bg-gray-800 text-white text-center p-4 no-print">
         © {new Date().getFullYear()} Temple Mount Church Records. All rights reserved.
       </footer>
-      {/* Placeholder for ToastContainer if react-toastify or similar is intended.
-          If not, this can be removed. For simplicity, I'll keep it as a common pattern.
-          However, `react-toastify` is an external lib. The prompt implies only React, Tailwind, and specified libs (d3, recharts, qrcode.react)
-          So, I will remove react-toastify and its CSS. Basic alerts can be used if needed.
-      */}
-      {/* <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover /> */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

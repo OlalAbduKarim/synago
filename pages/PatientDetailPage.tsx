@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { usePatientContext } from '../contexts/PatientContext';
 import PrintableReport from '../components/PrintableReport';
@@ -8,29 +8,11 @@ import { PrintIcon, UserIcon } from '../constants';
 const PatientDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { getPatientById, isLoading } = usePatientContext();
-  const printableRef = useRef<HTMLDivElement>(null);
 
   const patient = id ? getPatientById(id) : undefined;
 
   const handlePrint = () => {
-    const printableContent = document.getElementById('printable-area-wrapper');
-    if (printableContent) {
-      // Temporarily hide non-printable content (already handled by @media print CSS but this can be an additional JS measure if needed)
-      // const originalDisplay: {element: HTMLElement, display: string}[] = [];
-      // document.querySelectorAll('body > *:not(#printable-area-wrapper)').forEach(el => {
-      //   const htmlEl = el as HTMLElement;
-      //   originalDisplay.push({element: htmlEl, display: htmlEl.style.display});
-      //   htmlEl.style.display = 'none';
-      // });
-      
-      window.print();
-
-      // Restore display (if JS manipulation was used)
-      // originalDisplay.forEach(item => item.element.style.display = item.display);
-    } else {
-        console.error("Printable area not found");
-        alert("Could not find printable area.");
-    }
+    window.print();
   };
 
   if (isLoading) {
@@ -105,7 +87,7 @@ const PatientDetailPage: React.FC = () => {
       </div>
 
       {/* Hidden printable area wrapper - content is styled by @media print */}
-      <div id="printable-area-wrapper" ref={printableRef} className="hidden">
+      <div id="printable-area-wrapper" className="hidden">
         <PrintableReport patient={patient} />
       </div>
     </div>

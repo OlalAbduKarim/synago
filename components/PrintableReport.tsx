@@ -1,6 +1,6 @@
 import React from 'react';
 import { Patient } from '../types';
-import { QRCode } from 'qrcode.react';
+import { QRCodeSVG as QRCode } from 'qrcode.react';
 import { ChurchLogoPlaceholder } from '../constants';
 
 interface PrintableReportProps {
